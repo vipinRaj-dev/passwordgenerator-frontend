@@ -11,6 +11,8 @@ const PasswordList = (props) => {
   const token = Cookies.get("jwttoken");
 
   useEffect(() => {
+
+    console.log('i am inside the password list component');
     if (!token) {
       nav("/signup");
     } else {
