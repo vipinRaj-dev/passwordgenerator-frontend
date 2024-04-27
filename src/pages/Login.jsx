@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Cookies from "js-cookie";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { base_url } from "../utils/PortDetails";
 
 const Login = () => {
   const emailref = useRef();
@@ -20,7 +21,7 @@ const Login = () => {
     const password = passwordref.current.value;
     axios
       .post(
-        "http://localhost:4000/auth/login",
+        `${base_url}/auth/login`,
         {
           email,
           password,

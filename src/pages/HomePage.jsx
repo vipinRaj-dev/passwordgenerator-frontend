@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import PasswordList from "../components/PasswordList";
 import { useNavigate } from "react-router-dom";
+import { base_url } from "../utils/PortDetails";
 
 const HomePage = () => {
   const [refresh, setRefresh] = useState(false);
@@ -59,7 +60,7 @@ const HomePage = () => {
 
         axios
           .post(
-            "http://localhost:4000/user/addWebsite",
+            `${base_url}/user/addWebsite`,
             {
               website,
               password,
@@ -87,7 +88,10 @@ const HomePage = () => {
     <div>
       <div className="bg-slate-200 h-16 flex items-center justify-around">
         <h1 className="text-3xl font-bold">Password Generator</h1>
-        <button className="bg-slate-300 p-3 rounded-xl" onClick={() => logOut()}>
+        <button
+          className="bg-slate-300 p-3 rounded-xl"
+          onClick={() => logOut()}
+        >
           Logout
         </button>
       </div>

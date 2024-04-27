@@ -3,6 +3,7 @@ import Cookies from "js-cookie";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { base_url } from "../utils/PortDetails";
 
 const Signup = () => {
   const emailref = useRef();
@@ -22,7 +23,7 @@ const Signup = () => {
     console.log(email, password);
 
     axios
-      .post("http://localhost:4000/auth/signup", {
+      .post(`${base_url}/auth/signup`, {
         email,
         password,
       })

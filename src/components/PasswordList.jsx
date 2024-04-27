@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import { Copy, Eye, Trash2 } from "lucide-react";
+import { base_url } from "../utils/PortDetails";
 const PasswordList = (props) => {
   const [passwordList, setPasswordList] = useState([]);
 
@@ -14,7 +15,7 @@ const PasswordList = (props) => {
       nav("/signup");
     } else {
       axios
-        .get("http://localhost:4000/user/passwordList", {
+        .get(`${base_url}/user/passwordList`, {
           headers: {
             authorization: `Bearer ${Cookies.get("jwttoken")}`,
           },
@@ -36,7 +37,7 @@ const PasswordList = (props) => {
   const handleDelete = (id) => {
     // console.log(id);
     axios
-      .delete(`http://localhost:4000/user/deletePassword/${id}`, {
+      .delete(`${base_url}/user/deletePassword/${id}`, {
         headers: {
           authorization: `Bearer ${Cookies.get("jwttoken")}`,
         },
