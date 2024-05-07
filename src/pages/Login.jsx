@@ -33,6 +33,7 @@ const Login = () => {
       .then((res) => {
         // console.log(res);
         if (res.status === 200) {
+          Cookies.set('jwttoken' , res.data.token)
           navigate("/");
         }
       })
